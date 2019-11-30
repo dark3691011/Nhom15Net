@@ -12,7 +12,7 @@ namespace Nhom15.Models
         [Display (Name ="Mã Phòng ban")]
         public int MaPB { get; set; }
         [Display (Name ="Tên Phòng ban")]
-        public int TenPB { get; set; }
+        public string TenPB { get; set; }
 
 
     }
