@@ -13,6 +13,7 @@ namespace Nhom15.Models
         [Display(Name ="Mã nhân viên")]
         public int MaNV { get; set; }
         [Display(Name ="Tên nhân viên")]
+        [StringLength(70, MinimumLength = 9, ErrorMessage = "Tên từ 9 đến 70 kí tự")]
         public string TenNV { get; set; }
         [Display(Name ="Lương")]
         public double Luong { get; set; }

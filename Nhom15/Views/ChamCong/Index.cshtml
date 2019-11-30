@@ -1,18 +1,48 @@
-﻿<table>
-    <tr>
-        <th>mon</th>
-        <th>tue</th>
-        <th>wed</th>
-        <th>thus</th>
-        <th>fri</th>
-    </tr>
-    @for (int i = 0; i < 5; i++)
-    {
+﻿@model IEnumerable<Nhom15.Models.BangChamCong>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
         <tr>
-            @for (int j = 0; j < 5; j++)
-            {
-                <td><input type="checkbox" name="vehicle1" value="Bike"></td>
-            }
+            <th>
+                @Html.DisplayNameFor(model => model.SoNgayLam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NhanVien)
+            </th><th>
+                Tên nhân viên
+            </th>
+            <th></th>
         </tr>
-    }
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoNgayLam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhanVien.MaNV)
+            </td>
+            <td>
+                @item.NhanVien.TenNV
+            </td>
+            
+        </tr>
+}
+    </tbody>
 </table>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Nhom15.Models;
 
 namespace Nhom15.Controllers
@@ -16,15 +17,20 @@ namespace Nhom15.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int? id)
+        public async Task<IActionResult> Index()
         {
-            var chamcong = _context.bangChamCongs.SingleOrDefault(p => p.MaNV == id);
-            return View();
+            var myDbContext = _context.bangChamCongs.Include(n => n.NhanVien);
+            return View(await myDbContext.ToListAsync());
         }
 
         public IActionResult XemChamCong(int id)
         {
-            var chamcong = _context.bangChamCongs.Where(p => p.MaNV == id);
+            var chamcong = _context.bangChamCongs.Include(p =>p.NhanVien).Where(p => p.MaNV == id);
+            return View(chamcong);
+        }
+        public IActionResult XemChamCongThang(int thang)
+        {
+            var chamcong = _context.bangChamCongs.Include(p => p.NhanVien).Where(p => p.Thang == thang);
             return View(chamcong);
         }
         public IActionResult ThemMoi()
