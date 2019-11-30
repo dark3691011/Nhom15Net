@@ -1,0 +1,18 @@
+﻿<table>
+    <tr>
+        <th>mon</th>
+        <th>tue</th>
+        <th>wed</th>
+        <th>thus</th>
+        <th>fri</th>
+    </tr>
+    @for (int i = 0; i < 5; i++)
+    {
+        <tr>
+            @for (int j = 0; j < 5; j++)
+            {
+                <td><input type="checkbox" name="vehicle1" value="Bike"></td>
+            }
+        </tr>
+    }
+</table>
