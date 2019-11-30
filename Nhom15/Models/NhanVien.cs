@@ -15,7 +15,7 @@ namespace Nhom15.Models
         [Display(Name ="Tên nhân viên")]
         public string TenNV { get; set; }
         [Display(Name ="Lương")]
-        public string Luong { get; set; }
+        public double Luong { get; set; }
 
         [Display(Name ="Mã phòng ban")]
         public int MaPB { get; set; }

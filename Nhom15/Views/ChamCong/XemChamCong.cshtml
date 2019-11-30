@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Nhom15.Models.BangChamCong>
+
+@{
+    ViewData["Title"] = "XemChamCong";
+}
+
+<h1>XemChamCong</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SoNgayLam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NhanVien)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoNgayLam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NhanVien.MaNV)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaBCC">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaBCC">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaBCC">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

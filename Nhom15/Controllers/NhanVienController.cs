@@ -47,7 +47,7 @@ namespace Nhom15.Controllers
         // GET: NhanVien/Create
         public IActionResult Create()
         {
-            ViewData["MaPB"] = new SelectList(_context.phongBans, "MaPB", "MaPB");
+            ViewData["MaPB"] = new SelectList(_context.phongBans, "MaPB", "TenPB");
             return View();
         }
 
